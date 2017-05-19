@@ -11760,7 +11760,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Encoding-Problem">Encoding Problem<a class="anchor-link" href="#Encoding-Problem">&#182;</a></h4><p>Try using 'ISO-8859-1' if there is 'utf-8' error.</p>
+<h3 id="Encoding-Problem">Encoding Problem<a class="anchor-link" href="#Encoding-Problem">&#182;</a></h3><p>Try using 'ISO-8859-1' if there is 'utf-8' error.</p>
 
 <pre><code>df = pd.read_csv('file.csv', sep=',', quotechar='"', enconding='ISO-8859-1')</code></pre>
 
@@ -11786,7 +11786,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Create-DataFrame-from-dictionary-of-ndarrays-/-lists">Create DataFrame from dictionary of ndarrays / lists<a class="anchor-link" href="#Create-DataFrame-from-dictionary-of-ndarrays-/-lists">&#182;</a></h4>
+<h3 id="Create-DataFrame-from-dictionary-of-ndarrays-/-lists">Create DataFrame from dictionary of ndarrays / lists<a class="anchor-link" href="#Create-DataFrame-from-dictionary-of-ndarrays-/-lists">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11857,7 +11857,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Convert-string-to-numeric.">Convert string to numeric.<a class="anchor-link" href="#Convert-string-to-numeric.">&#182;</a></h4><p>Or using</p>
+<h3 id="Convert-string-to-numeric.">Convert string to numeric.<a class="anchor-link" href="#Convert-string-to-numeric.">&#182;</a></h3><p>Or using</p>
 
 <pre><code>df1['two] = df1['two'].astype(float)
 df1['two] = df1['two'].astype(np.int64)</code></pre>
@@ -11931,24 +11931,59 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Convert-String-to-Datetime">Convert String to Datetime<a class="anchor-link" href="#Convert-String-to-Datetime">&#182;</a></h4>
-<pre><code>df['col'] = pd.to_datetime(df['col'], format="%m/%d/%Y %H:%M:%S")</code></pre>
+<h3 id="Convert-String-to-Datetime">Convert String to Datetime<a class="anchor-link" href="#Convert-String-to-Datetime">&#182;</a></h3>
+<pre><code>df['col'] = pd.to_datetime(df['col'], format="%m/%d/%Y %H:%M:%S")
+df.col.dt.day
+df.col.dt.weekday
+df.col.dt.month
+df.col.dt.year</code></pre>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Creat-DataFrame-From-a-list-of-dicts">Creat DataFrame From a list of dicts<a class="anchor-link" href="#Creat-DataFrame-From-a-list-of-dicts">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;01/01/2016&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;02/14/2016&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;3D&#39;</span><span class="p">)</span>
+<span class="n">date_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s1">&#39;date&#39;</span><span class="p">:</span><span class="n">date_index</span><span class="p">,</span> <span class="s1">&#39;blah&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">date_index</span><span class="p">))})</span>
+<span class="n">date_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">weekday</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[4, 0, 3, 6, 2, 5, 1, 4, 0, 3, 6, 2, 5, 1, 4]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Creat-DataFrame-From-a-list-of-dicts">Creat DataFrame From a list of dicts<a class="anchor-link" href="#Creat-DataFrame-From-a-list-of-dicts">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d2</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}]</span>
@@ -11964,7 +11999,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12006,13 +12041,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Create-DataFrame-From-list">Create DataFrame From list<a class="anchor-link" href="#Create-DataFrame-From-list">&#182;</a></h4>
+<h3 id="Create-DataFrame-From-list">Create DataFrame From list<a class="anchor-link" href="#Create-DataFrame-From-list">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
@@ -12029,13 +12064,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Adding-new-column">Adding new column<a class="anchor-link" href="#Adding-new-column">&#182;</a></h4>
+<h3 id="Adding-new-column">Adding new column<a class="anchor-link" href="#Adding-new-column">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
@@ -12052,13 +12087,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Create-new-column-by-doing-math-about-existing-ones">Create new column by doing math about existing ones<a class="anchor-link" href="#Create-new-column-by-doing-math-about-existing-ones">&#182;</a></h4>
+<h3 id="Create-new-column-by-doing-math-about-existing-ones">Create new column by doing math about existing ones<a class="anchor-link" href="#Create-new-column-by-doing-math-about-existing-ones">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sub&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;add&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span>
@@ -12074,13 +12109,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Check-column-names">Check column names<a class="anchor-link" href="#Check-column-names">&#182;</a></h4>
+<h3 id="Check-column-names">Check column names<a class="anchor-link" href="#Check-column-names">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
@@ -12094,7 +12129,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12112,13 +12147,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Check-unique-values-of-column">Check unique values of column<a class="anchor-link" href="#Check-unique-values-of-column">&#182;</a></h4>
+<h3 id="Check-unique-values-of-column">Check unique values of column<a class="anchor-link" href="#Check-unique-values-of-column">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -12132,7 +12167,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12150,13 +12185,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Group-by-and-count-the-number">Group by and count the number<a class="anchor-link" href="#Group-by-and-count-the-number">&#182;</a></h4>
+<h3 id="Group-by-and-count-the-number">Group by and count the number<a class="anchor-link" href="#Group-by-and-count-the-number">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;new&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
@@ -12170,7 +12205,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12229,13 +12264,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Reset-index">Reset index<a class="anchor-link" href="#Reset-index">&#182;</a></h4>
+<h3 id="Reset-index">Reset index<a class="anchor-link" href="#Reset-index">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -12249,7 +12284,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12329,7 +12364,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Group-by-'column1'-and-get-the-sum-for-'column2'">Group by 'column1' and get the sum for 'column2'<a class="anchor-link" href="#Group-by-'column1'-and-get-the-sum-for-'column2'">&#182;</a></h4>
+<h3 id="Group-by-'column1'-and-get-the-sum-for-'column2'">Group by 'column1' and get the sum for 'column2'<a class="anchor-link" href="#Group-by-'column1'-and-get-the-sum-for-'column2'">&#182;</a></h3>
 <pre><code>df.groupby('column1').agg({'column2':sum, 'column3':mean})</code></pre>
 
 </div>
@@ -12337,7 +12372,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;new&#39;</span><span class="p">,</span><span class="s1">&#39;add&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;new&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -12351,7 +12386,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12403,13 +12438,13 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Check-the-NULL-number-and-not-NULL-number-for-'column1'">Check the NULL number and not NULL number for 'column1'<a class="anchor-link" href="#Check-the-NULL-number-and-not-NULL-number-for-'column1'">&#182;</a></h4>
+<h3 id="Check-the-NULL-number-and-not-NULL-number-for-'column1'">Check the NULL number and not NULL number for 'column1'<a class="anchor-link" href="#Check-the-NULL-number-and-not-NULL-number-for-'column1'">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -12423,7 +12458,7 @@ df1['two] = df1['two'].astype(np.int64)</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12441,7 +12476,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -12455,7 +12490,7 @@ dtype: int64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12473,13 +12508,13 @@ dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Check-Duplicates">Check Duplicates<a class="anchor-link" href="#Check-Duplicates">&#182;</a></h4>
+<h3 id="Check-Duplicates,-Drop-Duplicates">Check Duplicates, Drop Duplicates<a class="anchor-link" href="#Check-Duplicates,-Drop-Duplicates">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -12493,7 +12528,7 @@ dtype: int64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12508,97 +12543,10 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>new</th>
-      <th>add</th>
-      <th>sub</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>2.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>3.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>4.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>5.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2</td>
-      <td>6.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>5</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Adding-new-column-by-mapping">Adding new column by mapping<a class="anchor-link" href="#Adding-new-column-by-mapping">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;large3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span><span class="mi">3</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -12621,7 +12569,6 @@ dtype: int64</pre>
       <th>new</th>
       <th>add</th>
       <th>sub</th>
-      <th>large3</th>
     </tr>
   </thead>
   <tbody>
@@ -12630,42 +12577,36 @@ dtype: int64</pre>
       <td>1</td>
       <td>2.0</td>
       <td>1.0</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
       <td>3.0</td>
       <td>1.0</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
       <td>4.0</td>
       <td>1.0</td>
-      <td>True</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
       <td>5.0</td>
       <td>1.0</td>
-      <td>True</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2</td>
       <td>6.0</td>
       <td>4.0</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>5</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>True</td>
     </tr>
   </tbody>
 </table>
@@ -12683,7 +12624,7 @@ dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Sort-by-column-values">Sort by column values<a class="anchor-link" href="#Sort-by-column-values">&#182;</a></h4>
+<h3 id="Adding-new-column-by-mapping">Adding new column by mapping<a class="anchor-link" href="#Adding-new-column-by-mapping">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12692,7 +12633,8 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;large3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span><span class="mi">3</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 
 </div>
@@ -12719,6 +12661,99 @@ dtype: int64</pre>
   </thead>
   <tbody>
     <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sort-by-column-values">Sort by column values<a class="anchor-link" href="#Sort-by-column-values">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>new</th>
+      <th>add</th>
+      <th>sub</th>
+      <th>large3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <th>6</th>
       <td>5</td>
       <td>NaN</td>
@@ -12776,7 +12811,7 @@ dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Sort-dataframe-by-multiple-columns">Sort dataframe by multiple columns<a class="anchor-link" href="#Sort-dataframe-by-multiple-columns">&#182;</a></h4>
+<h3 id="Sort-dataframe-by-multiple-columns">Sort dataframe by multiple columns<a class="anchor-link" href="#Sort-dataframe-by-multiple-columns">&#182;</a></h3>
 <pre><code>df = df.sort(['col1','col2','col3'],ascending=[1,1,0])</code></pre>
 
 </div>
@@ -12787,7 +12822,7 @@ dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Fill-in-NaN">Fill in NaN<a class="anchor-link" href="#Fill-in-NaN">&#182;</a></h4>
+<h3 id="Fill-in-NaN">Fill in NaN<a class="anchor-link" href="#Fill-in-NaN">&#182;</a></h3>
 <pre><code>df.fillna(0, inplace=True)</code></pre>
 
 </div>
@@ -12795,7 +12830,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="s1">&#39;add&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;sub&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -12809,7 +12844,7 @@ dtype: int64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12882,7 +12917,7 @@ dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="NaN-vs-None">NaN vs None<a class="anchor-link" href="#NaN-vs-None">&#182;</a></h4>
+<h3 id="NaN-vs-None">NaN vs None<a class="anchor-link" href="#NaN-vs-None">&#182;</a></h3>
 <pre><code>NaN is a numeric value. None is an internal Python type (NoneType)
 NaN can be used as a numerical value on mathematical operations, while None cannot (or at least shouldn't).</code></pre>
 
@@ -12894,7 +12929,7 @@ NaN can be used as a numerical value on mathematical operations, while None cann
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Pandas-Axis">Pandas Axis<a class="anchor-link" href="#Pandas-Axis">&#182;</a></h5>
+<h3 id="Pandas-Axis">Pandas Axis<a class="anchor-link" href="#Pandas-Axis">&#182;</a></h3>
 <pre><code>axis=0 along the rows (namely, index in pandas), and axis=1 along the columns.</code></pre>
 
 </div>
@@ -12905,13 +12940,13 @@ NaN can be used as a numerical value on mathematical operations, while None cann
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Set-Value-for-some-cell">Set Value for some cell<a class="anchor-link" href="#Set-Value-for-some-cell">&#182;</a></h4>
+<h3 id="Set-Value-for-some-cell">Set Value for some cell<a class="anchor-link" href="#Set-Value-for-some-cell">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;sub&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -12925,7 +12960,7 @@ NaN can be used as a numerical value on mathematical operations, while None cann
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12998,7 +13033,7 @@ NaN can be used as a numerical value on mathematical operations, while None cann
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="map-function-with-a-function-as-parameter">map function with a function as parameter<a class="anchor-link" href="#map-function-with-a-function-as-parameter">&#182;</a></h4>
+<h3 id="Map-function-with-a-function-as-parameter">Map function with a function as parameter<a class="anchor-link" href="#Map-function-with-a-function-as-parameter">&#182;</a></h3>
 <pre><code>using lambda function
 change for this column</code></pre>
 
@@ -13007,7 +13042,7 @@ change for this column</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f_t</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -13025,7 +13060,7 @@ change for this column</code></pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13105,7 +13140,7 @@ change for this column</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Selection-with-two-conditions">Selection with two conditions<a class="anchor-link" href="#Selection-with-two-conditions">&#182;</a></h4>
+<h3 id="Selection-with-two-conditions">Selection with two conditions<a class="anchor-link" href="#Selection-with-two-conditions">&#182;</a></h3>
 <pre><code>Note the "()" and "&amp;"</code></pre>
 
 </div>
@@ -13113,7 +13148,7 @@ change for this column</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sub&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)][</span><span class="s1">&#39;square&#39;</span><span class="p">])</span>
@@ -13144,7 +13179,7 @@ Name: square, dtype: int64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="using-loc-for-change-values">using loc for change values<a class="anchor-link" href="#using-loc-for-change-values">&#182;</a></h4>
+<h3 id="using-loc-for-change-values">using loc for change values<a class="anchor-link" href="#using-loc-for-change-values">&#182;</a></h3>
 <pre><code>df.loc[(df['column1'] == some_value) &amp; (df['column2'] == some_other_value), ['column_to_change']] = new_value
 </code></pre>
 <p>Note: using '[]' instead of '()'</p>
@@ -13154,7 +13189,7 @@ Name: square, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sub&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">4</span><span class="p">),[</span><span class="s1">&#39;square&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">36</span>
@@ -13170,7 +13205,7 @@ Name: square, dtype: int64
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13250,7 +13285,7 @@ Name: square, dtype: int64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Add-new-column-to-DataFrame.">Add new column to DataFrame.<a class="anchor-link" href="#Add-new-column-to-DataFrame.">&#182;</a></h4>
+<h3 id="Add-new-column-to-DataFrame.">Add new column to DataFrame.<a class="anchor-link" href="#Add-new-column-to-DataFrame.">&#182;</a></h3>
 <pre><code>df.assign(columnname=Series/Scalar/Array)
 </code></pre>
 <p>Note: Need to assign again, otherwise it did not change the original one.</p>
@@ -13263,7 +13298,7 @@ Name: square, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span>
@@ -13279,7 +13314,7 @@ Name: square, dtype: int64
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13366,7 +13401,7 @@ Name: square, dtype: int64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Delete-Column">Delete Column<a class="anchor-link" href="#Delete-Column">&#182;</a></h4>
+<h3 id="Delete-Column">Delete Column<a class="anchor-link" href="#Delete-Column">&#182;</a></h3>
 <pre><code>df.drop('columname', axis=1, inplace=True)
 </code></pre>
 <p>Or, using 'del'</p>
@@ -13382,7 +13417,7 @@ Name: square, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;cube&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13397,7 +13432,7 @@ Name: square, dtype: int64
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13477,13 +13512,15 @@ Name: square, dtype: int64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Select-row-according-to-values.">Select row according to values.<a class="anchor-link" href="#Select-row-according-to-values.">&#182;</a></h4>
+<h3 id="Select-row-according-to-values.">Select row according to values.<a class="anchor-link" href="#Select-row-according-to-values.">&#182;</a></h3>
+<pre><code>isin()</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])]</span>
@@ -13497,7 +13534,7 @@ Name: square, dtype: int64
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13561,11 +13598,46 @@ Name: square, dtype: int64
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Set-Index">Set Index<a class="anchor-link" href="#Set-Index">&#182;</a></h4>
+<h3 id="Rename-Column-name">Rename Column name<a class="anchor-link" href="#Rename-Column-name">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;new&#39;</span><span class="p">:</span><span class="s1">&#39;base&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Set-Index">Set Index<a class="anchor-link" href="#Set-Index">&#182;</a></h3>
 <pre><code> df.index = df['date']</code></pre>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
     </div>
   </div>

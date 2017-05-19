@@ -1,7 +1,7 @@
 
 ## Pandas Data Munging Data Wrangling
 
-#### Encoding Problem
+### Encoding Problem
 Try using 'ISO-8859-1' if there is 'utf-8' error.
 
     df = pd.read_csv('file.csv', sep=',', quotechar='"', enconding='ISO-8859-1')
@@ -12,7 +12,7 @@ import pandas as pd
 import numpy as np
 ```
 
-#### Create DataFrame from dictionary of ndarrays / lists
+### Create DataFrame from dictionary of ndarrays / lists
 
 
 ```python
@@ -60,7 +60,7 @@ df1
 
 
 
-#### Convert string to numeric.
+### Convert string to numeric.
 Or using 
 
     df1['two] = df1['two'].astype(float)
@@ -111,11 +111,29 @@ df1
 
 
 
-#### Convert String to Datetime
+### Convert String to Datetime
 
     df['col'] = pd.to_datetime(df['col'], format="%m/%d/%Y %H:%M:%S")
+    df.col.dt.day
+    df.col.dt.weekday
+    df.col.dt.month
+    df.col.dt.year
 
-#### Creat DataFrame From a list of dicts
+
+```python
+date_index = pd.date_range(start='01/01/2016', end='02/14/2016', freq='3D')
+date_df = pd.DataFrame.from_dict({'date':date_index, 'blah':range(len(date_index))})
+date_df.date.dt.weekday.tolist()
+```
+
+
+
+
+    [4, 0, 3, 6, 2, 5, 1, 4, 0, 3, 6, 2, 5, 1, 4]
+
+
+
+### Creat DataFrame From a list of dicts
 
 
 ```python
@@ -156,7 +174,7 @@ df2
 
 
 
-#### Create DataFrame From list
+### Create DataFrame From list
 
 
 ```python
@@ -164,7 +182,7 @@ a = [1,2,3,4,2,2,5]
 df = pd.DataFrame(a, columns=['new'])
 ```
 
-#### Adding new column
+### Adding new column
 
 
 ```python
@@ -172,14 +190,14 @@ b = [2,3,4,5,6,6]
 df['add'] = pd.DataFrame(b)
 ```
 
-#### Create new column by doing math about existing ones
+### Create new column by doing math about existing ones
 
 
 ```python
 df['sub'] = df['add'] - df['new']
 ```
 
-#### Check column names
+### Check column names
 
 
 ```python
@@ -193,7 +211,7 @@ df.columns
 
 
 
-#### Check unique values of column
+### Check unique values of column
 
 
 ```python
@@ -207,7 +225,7 @@ df.new.unique()
 
 
 
-#### Group by and count the number
+### Group by and count the number
 
 
 ```python
@@ -263,7 +281,7 @@ df.groupby('new').count()
 
 
 
-#### Reset index
+### Reset index
 
 
 ```python
@@ -340,7 +358,7 @@ df.reset_index()
 
 
 
-#### Group by 'column1' and get the sum for 'column2'
+### Group by 'column1' and get the sum for 'column2'
     df.groupby('column1').agg({'column2':sum, 'column3':mean})
 
 
@@ -390,7 +408,7 @@ df[['new','add']].groupby('new').sum()
 
 
 
-#### Check the NULL number and not NULL number for 'column1'
+### Check the NULL number and not NULL number for 'column1'
 
 
 ```python
@@ -419,7 +437,7 @@ df.notnull().sum().tolist()
 
 
 
-#### Check Duplicates
+### Check Duplicates, Drop Duplicates
 
 
 ```python
@@ -495,7 +513,7 @@ df
 
 
 
-#### Adding new column by mapping
+### Adding new column by mapping
 
 
 ```python
@@ -566,7 +584,7 @@ df
 
 
 
-#### Sort by column values
+### Sort by column values
 
 
 ```python
@@ -636,11 +654,11 @@ df.sort_values(by='new', ascending=False)
 
 
 
-#### Sort dataframe by multiple columns
+### Sort dataframe by multiple columns
 
     df = df.sort(['col1','col2','col3'],ascending=[1,1,0])
 
-#### Fill in NaN
+### Fill in NaN
 
     df.fillna(0, inplace=True)
 
@@ -712,16 +730,16 @@ df.fillna({'add':0,'sub':-1}, inplace=True)
 
 
 
-#### NaN vs None
+### NaN vs None
 
     NaN is a numeric value. None is an internal Python type (NoneType)
     NaN can be used as a numerical value on mathematical operations, while None cannot (or at least shouldn't).
 
-##### Pandas Axis
+### Pandas Axis
 
     axis=0 along the rows (namely, index in pandas), and axis=1 along the columns.
 
-#### Set Value for some cell
+### Set Value for some cell
 
 
 ```python
@@ -791,7 +809,7 @@ df.set_value(6, 'sub', 0)
 
 
 
-#### map function with a function as parameter 
+### Map function with a function as parameter 
     using lambda function
     change for this column
 
@@ -874,7 +892,7 @@ df
 
 
 
-#### Selection with two conditions
+### Selection with two conditions
     Note the "()" and "&"
 
 
@@ -886,7 +904,7 @@ print (df[(df['new']==2) & (df['sub']==1)]['square'])
     Name: square, dtype: int64
 
 
-#### using loc for change values
+### using loc for change values
 
     df.loc[(df['column1'] == some_value) & (df['column2'] == some_other_value), ['column_to_change']] = new_value
 Note: using '[]' instead of '()'
@@ -968,7 +986,7 @@ df
 
 
 
-#### Add new column to DataFrame.
+### Add new column to DataFrame.
     df.assign(columnname=Series/Scalar/Array)
 Note: Need to assign again, otherwise it did not change the original one.
     
@@ -1060,7 +1078,7 @@ df
 
 
 
-#### Delete Column
+### Delete Column
     df.drop('columname', axis=1, inplace=True)
 Or, using 'del'
 
@@ -1145,7 +1163,9 @@ df
 
 
 
-#### Select row according to values.
+### Select row according to values.
+    
+    isin()
 
 
 ```python
@@ -1206,5 +1226,17 @@ df[df['new'].isin([1,2,3])]
 
 
 
-#### Set Index
+### Rename Column name
+
+
+```python
+df.rename(columns={'new':'base'}, inplace=True)
+```
+
+### Set Index
      df.index = df['date']
+
+
+```python
+
+```
